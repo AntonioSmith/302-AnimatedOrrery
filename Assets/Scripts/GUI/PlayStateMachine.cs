@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class PlayStateMachine : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Play()
     {
-        
+        Time.timeScale = 1;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void FastForward()
+    {
+        Time.timeScale = 2;
+    }
+    public void Pause()
+    {
+        Time.timeScale = 0;
+    }
+    public void Rewind()
     {
         
     }

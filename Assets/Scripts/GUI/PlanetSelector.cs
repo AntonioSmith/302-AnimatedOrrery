@@ -12,6 +12,8 @@ public class PlanetSelector : MonoBehaviour
     public bool isVisible = false;
     public Transform target;
     public Image panel;
+    public Vector3 cameraStartPosition;
+    //public Transform cameraStartRotation;
 
     public TextMeshProUGUI Name;
     public TextMeshProUGUI Pop;
@@ -30,6 +32,7 @@ public class PlanetSelector : MonoBehaviour
     private void Start()
     {
         panel.gameObject.SetActive(false);
+        cam.transform.position = cameraStartPosition;
     }
 
     private void Update()
@@ -37,7 +40,7 @@ public class PlanetSelector : MonoBehaviour
         cam.transform.LookAt(target);
         if (isFollowing)
         {
-            cam.transform.position = AnimMath.Slide(cam.transform.position, target.position, .01f);
+            cam.transform.position = AnimMath.Slide(cam.transform.position, target.position, .50f);
         }
     }
 
@@ -46,75 +49,75 @@ public class PlanetSelector : MonoBehaviour
         target = Solos.transform;
         isFollowing = false;
         panel.gameObject.SetActive(true);
-        Name.text = "Solos";
-        Pop.text = "0";
-        Habit.text = "UNINHABITABLE";
-        Description.text = "The Sun";
+        Name.text = "Planet Name: Solos";
+        Pop.text = "Population: 0";
+        Habit.text = "Habitability: UNINHABITABLE";
+        Description.text = "Description: The Sun";
     }
     public void FollowTerros()
     {
         target = Terros.transform;
         isFollowing = true;
         panel.gameObject.SetActive(true);
-        Name.text = "Terros";
-        Pop.text = "Unknown";
-        Habit.text = "65%";
-        Description.text = "The Rocky Giant";
+        Name.text = "Planet Name: Terros";
+        Pop.text = "Population: Unknown";
+        Habit.text = "Habitability: 65%";
+        Description.text = "Description: The Rocky Giant";
     }
     public void FollowPhyros()
     {
         target = Phyros.transform;
         isFollowing = true;
         panel.gameObject.SetActive(true);
-        Name.text = "Phyros";
-        Pop.text = "0";
-        Habit.text = "UNINHABITABLE";
-        Description.text = "The Molten Planet";
+        Name.text = "Planet Name: Phyros";
+        Pop.text = "Population: 0";
+        Habit.text = "Habitability: UNINHABITABLE";
+        Description.text = "Description: The Molten Planet";
     }
     public void FollowLymphos()
     {
         target = Lymphos.transform;
         isFollowing = true;
         panel.gameObject.SetActive(true);
-        Name.text = "Lymphos";
-        Pop.text = "Billions~";
-        Habit.text = "50% - Inhabitants Hostile";
-        Description.text = "The Warring Water World";
+        Name.text = "Planet Name: Lymphos";
+        Pop.text = "Population: Billions~";
+        Habit.text = "Habitability: 50% - Inhabitants Hostile";
+        Description.text = "Description: The Warring Water World";
     }
     public void FollowTempos()
     {
         target = Tempos.transform;
         isFollowing = true;
         panel.gameObject.SetActive(true);
-        Name.text = "Tempos";
-        Pop.text = "Millions~";
-        Habit.text = "30%";
-        Description.text = "The Raging Stormbringer";
+        Name.text = "Planet Name: Tempos";
+        Pop.text = "Population: Millions~";
+        Habit.text = "Habitability: 30%";
+        Description.text = "Description: The Raging Stormbringer";
     }
     public void FollowGlados()
     {
         target = Glados.transform;
         isFollowing = true;
         panel.gameObject.SetActive(true);
-        Name.text = "Glados";
-        Pop.text = "0";
-        Habit.text = "UNINHABITABLE";
-        Description.text = "The Frozen Wasteland";
+        Name.text = "Planet Name: Glados";
+        Pop.text = "Population: 0";
+        Habit.text = "Habitability: UNINHABITABLE";
+        Description.text = "Description: The Frozen Wasteland";
     }
     public void FollowLuminos()
     {
         target = Luminos.transform;
         isFollowing = true;
         panel.gameObject.SetActive(true);
-        Name.text = "Luminos";
-        Pop.text = "Millions~";
-        Habit.text = "100%";
-        Description.text = "The Galactic Mana Hub";
+        Name.text = "Planet Name: Luminos";
+        Pop.text = "Population: Millions~";
+        Habit.text = "Habitability: 100%";
+        Description.text = "Description: The Galactic Mana Hub";
     }
     public void FollowNone()
     {
-        target = Solos.transform;
         isFollowing = false;
+        cam.transform.position = cameraStartPosition;
         panel.gameObject.SetActive(false);
     }
 }
